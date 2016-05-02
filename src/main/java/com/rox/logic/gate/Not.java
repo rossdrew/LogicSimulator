@@ -1,0 +1,22 @@
+package com.rox.logic.gate;
+
+import com.rox.LogicGate;
+import com.rox.LogicValue;
+
+/**
+ * @Author rossdrew
+ * @Created 02/05/16.
+ */
+public class Not implements LogicGate {
+    private LogicValue[] inputs;
+
+    public void multipleInput(LogicValue... inputs) {
+        this.inputs = inputs;
+    }
+
+    public boolean getValue() {
+        boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
+
+        return !inputA;
+    }
+}
