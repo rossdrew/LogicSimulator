@@ -1,8 +1,12 @@
-package com.rox.logic.gate;
+package com.rox.logic.gate.binary;
 
+import com.rox.logic.gate.binary.Not;
+import com.rox.logic.gate.state.LogicalFalse;
+import com.rox.logic.gate.state.LogicalTrue;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertTrue;
 
 /**
  * @Author rossdrew
@@ -20,13 +24,13 @@ public class TestNot {
     public void testFalseInput(){
         Not testGate = new Not();
         testGate.multipleInput(LogicalFalse.instance());
-        assertFalse(testGate.getValue());
+        assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullInput(){
         Not testGate = new Not();
         testGate.multipleInput(null);
-        assertFalse(testGate.getValue());
+        assertFalse(testGate.getValue());//What SHOULD be the output from a NOT with a null input
     }
 }

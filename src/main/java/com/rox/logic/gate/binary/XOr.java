@@ -1,4 +1,4 @@
-package com.rox.logic.gate;
+package com.rox.logic.gate.binary;
 
 import com.rox.LogicGate;
 import com.rox.LogicValue;
@@ -7,7 +7,7 @@ import com.rox.LogicValue;
  * @Author rossdrew
  * @Created 02/05/16.
  */
-public class And implements LogicGate {
+public class XOr implements LogicGate{
     private LogicValue[] inputs;
 
     public void multipleInput(LogicValue... inputs) {
@@ -18,6 +18,6 @@ public class And implements LogicGate {
         boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
         boolean inputB = inputs[1] == null ? false : inputs[1].getValue();
 
-        return inputA && inputB;
+        return inputA^inputB;
     }
 }

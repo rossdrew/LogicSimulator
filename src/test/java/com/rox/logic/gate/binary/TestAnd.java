@@ -1,6 +1,10 @@
-package com.rox.logic.gate;
+package com.rox.logic.gate.binary;
 
+import com.rox.logic.gate.binary.And;
+import com.rox.logic.gate.state.LogicalFalse;
+import com.rox.logic.gate.state.LogicalTrue;
 import org.junit.Test;
+
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
@@ -8,48 +12,48 @@ import static junit.framework.TestCase.assertTrue;
  * @Author rossdrew
  * @Created 02/05/16.
  */
-public class TestOr {
+public class TestAnd {
 
     @Test
     public void testTwoTrueInputs(){
-        Or testGate = new Or();
+        And testGate = new And();
         testGate.multipleInput(LogicalTrue.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testTwoFalseInputs(){
-        Or testGate = new Or();
+        And testGate = new And();
         testGate.multipleInput(LogicalFalse.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseBInput(){
-        Or testGate = new Or();
+        And testGate = new And();
         testGate.multipleInput(LogicalTrue.instance(), LogicalFalse.instance());
-        assertTrue(testGate.getValue());
+        assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseAInput(){
-        Or testGate = new Or();
+        And testGate = new And();
         testGate.multipleInput(LogicalFalse.instance(), LogicalTrue.instance());
-        assertTrue(testGate.getValue());
+        assertFalse(testGate.getValue());
     }
 
     @Test
-    public void testNullATrueBInput(){
-        Or testGate = new Or();
+    public void testNullAInput(){
+        And testGate = new And();
         testGate.multipleInput(null, LogicalTrue.instance());
-        assertTrue(testGate.getValue());
+        assertFalse(testGate.getValue());
     }
 
     @Test
-    public void testNullBTrueAInput(){
-        Or testGate = new Or();
+    public void testNullBInput(){
+        And testGate = new And();
         testGate.multipleInput(LogicalTrue.instance(), null);
-        assertTrue(testGate.getValue());
+        assertFalse(testGate.getValue());
     }
 
     //Test for too many inputs?

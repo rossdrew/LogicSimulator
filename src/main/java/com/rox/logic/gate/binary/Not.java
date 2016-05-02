@@ -1,4 +1,4 @@
-package com.rox.logic.gate;
+package com.rox.logic.gate.binary;
 
 import com.rox.LogicGate;
 import com.rox.LogicValue;
@@ -15,7 +15,8 @@ public class Not implements LogicGate {
     }
 
     public boolean getValue() {
-        boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
+
+        boolean inputA = (inputs == null || inputs[0] == null) ? true : inputs[0].getValue();
 
         return !inputA;
     }
