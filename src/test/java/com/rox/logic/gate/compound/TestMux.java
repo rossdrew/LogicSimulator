@@ -1,7 +1,5 @@
 package com.rox.logic.gate.compound;
 
-import com.rox.logic.gate.binary.And;
-import com.rox.logic.gate.binary.Not;
 import com.rox.logic.gate.state.LogicalFalse;
 import com.rox.logic.gate.state.LogicalTrue;
 import org.junit.Test;
@@ -10,6 +8,12 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 /**
+ * 2-Input Multiplexer<br/>
+ * <br/>
+ * Let input 3 choose to get value from input 1 (3=false) or 2 (3=true)
+ * <br/>
+ * More for testing gate chaining than anything else.
+ *
  * @Author rossdrew
  * @Created 02/05/16.
  */
@@ -19,41 +23,41 @@ public class TestMux {
     public void testTrueInput(){
         Mux testGate = new Mux();
         testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance(), LogicalTrue.instance());
-        assertTrue(testGate.getValue());
+        assertTrue("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
     }
 
     @Test
     public void testFalseInput(){
         Mux testGate = new Mux();
         testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalFalse.instance());
-        assertFalse(testGate.getValue());
+        assertFalse("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
-    public void testSelectAInputAsTrue(){
+    public void testOneIsTrueAndSelected(){
         Mux testGate = new Mux();
-        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
-        assertTrue(testGate.getValue());
+        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalFalse.instance());
+        assertTrue("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
-    public void testSelectAInputAsFalse(){
+    public void testOneIsFalseAndSelected(){
         Mux testGate = new Mux();
-        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
-        assertFalse(testGate.getValue());
+        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance(), LogicalFalse.instance());
+        assertFalse("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
-    public void testSelectBInputAsTrue(){
+    public void testTwoIsTrueAndSelected(){
         Mux testGate = new Mux();
         testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance(), LogicalTrue.instance());
-        assertFalse(testGate.getValue());
+        assertTrue("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
-    public void testSelectBInputAsFalse(){
+    public void testTwoIsFalseAndSelected(){
         Mux testGate = new Mux();
         testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
-        assertFalse(testGate.getValue());
+        assertFalse("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
     }
 }
