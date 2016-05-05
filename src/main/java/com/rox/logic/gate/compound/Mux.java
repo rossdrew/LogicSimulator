@@ -17,11 +17,11 @@ public class Mux implements LogicGate{
     And middleAND2 = new And();
     Not inverter = new Not();
 
-    public void multipleInput(LogicValue... inputs) {
-        endAND.multipleInput(middleAND1, middleAND2);
-        middleAND1.multipleInput(inputs[0], inverter);
-        middleAND2.multipleInput(inputs[1], inputs[2]);
-        inverter.multipleInput(inputs[2]);
+    public void setInput(LogicValue... inputs) {
+        endAND.setInput(middleAND1, middleAND2);
+        middleAND1.setInput(inputs[0], inverter);
+        middleAND2.setInput(inputs[1], inputs[2]);
+        inverter.setInput(inputs[2]);
     }
 
     public boolean getValue() {

@@ -10,7 +10,7 @@ import com.rox.LogicValue;
 public class And implements LogicGate {
     private LogicValue[] inputs;
 
-    public void multipleInput(LogicValue... inputs) {
+    public void setInput(LogicValue... inputs) {
         this.inputs = inputs;
     }
 

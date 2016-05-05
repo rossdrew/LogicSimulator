@@ -16,42 +16,42 @@ public class TestOr {
     @Test
     public void testTwoTrueInputs(){
         Or testGate = new Or();
-        testGate.multipleInput(LogicalTrue.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testTwoFalseInputs(){
         Or testGate = new Or();
-        testGate.multipleInput(LogicalFalse.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseBInput(){
         Or testGate = new Or();
-        testGate.multipleInput(LogicalTrue.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testFalseAInput(){
         Or testGate = new Or();
-        testGate.multipleInput(LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullATrueBInput(){
         Or testGate = new Or();
-        testGate.multipleInput(null, LogicalTrue.instance());
+        testGate.setInput(null, LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullBTrueAInput(){
         Or testGate = new Or();
-        testGate.multipleInput(LogicalTrue.instance(), null);
+        testGate.setInput(LogicalTrue.instance(), null);
         assertTrue(testGate.getValue());
     }
 

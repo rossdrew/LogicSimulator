@@ -18,28 +18,28 @@ public class TestMux {
     @Test
     public void testTrueInput(){
         Mux testGate = new Mux();
-        testGate.multipleInput(LogicalTrue.instance(), LogicalTrue.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testFalseInput(){
         Mux testGate = new Mux();
-        testGate.multipleInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testSelectAInputAsTrue(){
         Mux testGate = new Mux();
-        testGate.multipleInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testSelectAInputAsFalse(){
         Mux testGate = new Mux();
-        testGate.multipleInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
         assertFalse(testGate.getValue());
     }
 

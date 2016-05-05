@@ -16,21 +16,21 @@ public class TestNot {
     @Test
     public void testTrueInput(){
         Not testGate = new Not();
-        testGate.multipleInput(LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseInput(){
         Not testGate = new Not();
-        testGate.multipleInput(LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullInput(){
         Not testGate = new Not();
-        testGate.multipleInput(null);
+        testGate.setInput(null);
         assertFalse(testGate.getValue());//What SHOULD be the output from a NOT with a null input
     }
 }
