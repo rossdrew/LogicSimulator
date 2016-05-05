@@ -1,7 +1,7 @@
 package com.rox.logic.gate.compound;
 
 import com.rox.logic.LogicGate;
-import com.rox.LogicValue;
+import com.rox.logic.LogicValueProducer;
 
 /**
  * @Author rossdrew
@@ -10,9 +10,9 @@ import com.rox.LogicValue;
  * There is obviously a simpler way to do this but I am testing simple compound gates here, for now
  */
 public class NAnd implements LogicGate{
-    private LogicValue[] inputs;
+    private LogicValueProducer[] inputs;
 
-    public void setInput(LogicValue... inputs) {
+    public void setInput(LogicValueProducer... inputs) {
         this.inputs = inputs;
     }
 

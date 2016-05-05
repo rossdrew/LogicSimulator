@@ -1,16 +1,16 @@
 package com.rox.logic.gate.compound;
 
 import com.rox.logic.LogicGate;
-import com.rox.LogicValue;
+import com.rox.logic.LogicValueProducer;
 
 /**
  * @Author rossdrew
  * @Created 02/05/16.
  */
 public class NOr implements LogicGate {
-    private LogicValue[] inputs;
+    private LogicValueProducer[] inputs;
 
-    public void setInput(LogicValue... inputs) {
+    public void setInput(LogicValueProducer... inputs) {
         this.inputs = inputs;
     }
 

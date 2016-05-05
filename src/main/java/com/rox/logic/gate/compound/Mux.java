@@ -1,7 +1,7 @@
 package com.rox.logic.gate.compound;
 
 import com.rox.logic.LogicGate;
-import com.rox.LogicValue;
+import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.binary.Not;
 
 /**
@@ -15,14 +15,14 @@ import com.rox.logic.gate.binary.Not;
  * @Created 02/05/16.
  */
 public class Mux implements LogicGate{
-    private LogicValue[] inputs;
+    private LogicValueProducer[] inputs;
 
     private NAnd endNAND = new NAnd();
     private NAnd middleNAND1 = new NAnd();
     private NAnd middleNAND2 = new NAnd();
     private Not inverter = new Not();
 
-    public void setInput(LogicValue... inputs) {
+    public void setInput(LogicValueProducer... inputs) {
         endNAND.setInput(middleNAND1, middleNAND2);
 
         middleNAND1.setInput(inputs[0], inverter);
