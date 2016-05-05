@@ -1,4 +1,4 @@
-package com.rox.logic.gate.state;
+package com.rox.logic.state;
 
 import com.rox.LogicValue;
 

@@ -1,6 +1,6 @@
 package com.rox.logic.gate.binary;
 
-import com.rox.LogicGate;
+import com.rox.logic.LogicGate;
 import com.rox.LogicValue;
 
 /**
