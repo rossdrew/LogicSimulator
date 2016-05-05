@@ -8,12 +8,6 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 /**
- * 2-Input Multiplexer<br/>
- * <br/>
- * Let input 3 choose to get value from input 1 (3=false) or 2 (3=true)
- * <br/>
- * More for testing gate chaining than anything else.
- *
  * @Author rossdrew
  * @Created 02/05/16.
  */
