@@ -43,6 +43,17 @@ public class TestMux {
         assertFalse(testGate.getValue());
     }
 
-    //TODO B input as true
-    //TODO B input as false
+    @Test
+    public void testSelectBInputAsTrue(){
+        Mux testGate = new Mux();
+        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance(), LogicalTrue.instance());
+        assertFalse(testGate.getValue());
+    }
+
+    @Test
+    public void testSelectBInputAsFalse(){
+        Mux testGate = new Mux();
+        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+        assertFalse(testGate.getValue());
+    }
 }

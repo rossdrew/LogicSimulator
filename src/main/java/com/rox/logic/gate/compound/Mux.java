@@ -12,15 +12,17 @@ import com.rox.logic.gate.binary.Not;
 public class Mux implements LogicGate{
     private LogicValue[] inputs;
 
-    And endAND = new And();
-    And middleAND1 = new And();
-    And middleAND2 = new And();
-    Not inverter = new Not();
+    private And endAND = new And();
+    private And middleAND1 = new And();
+    private And middleAND2 = new And();
+    private Not inverter = new Not();
 
     public void setInput(LogicValue... inputs) {
         endAND.setInput(middleAND1, middleAND2);
+
         middleAND1.setInput(inputs[0], inverter);
         middleAND2.setInput(inputs[1], inputs[2]);
+        
         inverter.setInput(inputs[2]);
     }
 
