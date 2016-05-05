@@ -1,7 +1,9 @@
 package com.rox.logic.gate.binary;
 
+import com.rox.LogicGate;
 import com.rox.logic.gate.state.LogicalFalse;
 import com.rox.logic.gate.state.LogicalTrue;
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
@@ -12,45 +14,45 @@ import static junit.framework.TestCase.assertTrue;
  * @Created 02/05/16.
  */
 public class TestXOr {
+    private LogicGate testGate;
+
+    @Before
+    public void setup(){
+        testGate = new XOr();
+    }
 
     @Test
     public void testTwoTrueInputs(){
-        XOr testGate = new XOr();
         testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testTwoFalseInputs(){
-        XOr testGate = new XOr();
         testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseBInput(){
-        XOr testGate = new XOr();
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testFalseAInput(){
-        XOr testGate = new XOr();
         testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullAInput(){
-        XOr testGate = new XOr();
         testGate.setInput(null, LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullBInput(){
-        XOr testGate = new XOr();
         testGate.setInput(LogicalTrue.instance(), null);
         assertTrue(testGate.getValue());
     }

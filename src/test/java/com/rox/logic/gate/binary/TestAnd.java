@@ -1,8 +1,11 @@
 package com.rox.logic.gate.binary;
 
+import com.rox.LogicGate;
 import com.rox.logic.gate.binary.And;
+import com.rox.logic.gate.compound.NAnd;
 import com.rox.logic.gate.state.LogicalFalse;
 import com.rox.logic.gate.state.LogicalTrue;
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
@@ -13,45 +16,45 @@ import static junit.framework.TestCase.assertTrue;
  * @Created 02/05/16.
  */
 public class TestAnd {
+    private LogicGate testGate;
+
+    @Before
+    public void setup(){
+        testGate = new And();
+    }
 
     @Test
     public void testTwoTrueInputs(){
-        And testGate = new And();
         testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance());
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testTwoFalseInputs(){
-        And testGate = new And();
         testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseBInput(){
-        And testGate = new And();
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseAInput(){
-        And testGate = new And();
         testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testNullAInput(){
-        And testGate = new And();
         testGate.setInput(null, LogicalTrue.instance());
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testNullBInput(){
-        And testGate = new And();
         testGate.setInput(LogicalTrue.instance(), null);
         assertFalse(testGate.getValue());
     }
