@@ -14,10 +14,16 @@ public class And implements LogicGate {
         this.inputs = inputs;
     }
 
+    public LogicValueProducer[] getInput() {
+        return inputs;
+    }
+
     public boolean getValue() {
         boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
         boolean inputB = inputs[1] == null ? false : inputs[1].getValue();
 
         return inputA && inputB;
     }
+
+
 }

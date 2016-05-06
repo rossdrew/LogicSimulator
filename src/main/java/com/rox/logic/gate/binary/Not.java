@@ -14,6 +14,10 @@ public class Not implements LogicGate {
         this.inputs = inputs;
     }
 
+    public LogicValueProducer[] getInput() {
+        return inputs;
+    }
+
     public boolean getValue() {
 
         boolean inputA = (inputs == null || inputs[0] == null) ? true : inputs[0].getValue();
