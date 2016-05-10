@@ -21,20 +21,22 @@ import static org.junit.Assert.assertEquals;
 public class TestGateWatcher {
     private LogicGate testGate;
     private List<String> reportString;
+    private GateWatchListener listener;
 
     @Before
     public void setup(){
         reportString = new ArrayList<String>();
+        listener = new GateWatchListener() {
+            public void reportStatus(String statusString) {
+                reportString.add(statusString);
+            }
+        };
     }
 
     @Test
     public void testOneWatchedGate(){
         GateWatcher gateWatcher = new GateWatcher(new And());
-        gateWatcher.addGateWatchListener(new GateWatchListener() {
-            public void reportStatus(String statusString) {
-                reportString.add(statusString);
-            }
-        });
+        gateWatcher.addGateWatchListener(listener);
 
         testGate = gateWatcher;
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
