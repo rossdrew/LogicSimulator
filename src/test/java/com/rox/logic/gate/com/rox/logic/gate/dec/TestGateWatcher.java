@@ -6,7 +6,11 @@ import com.rox.logic.gate.dec.GateWatcher;
 import com.rox.logic.gate.dec.watch.GateWatchListener;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,14 +20,19 @@ import static org.junit.Assert.assertEquals;
  */
 public class TestGateWatcher {
     private LogicGate testGate;
-    private String reportString;
+    private List<String> reportString;
+
+    @Before
+    public void setup(){
+        reportString = new ArrayList<String>();
+    }
 
     @Test
     public void testOneWatchedGate(){
         GateWatcher gateWatcher = new GateWatcher(new And());
         gateWatcher.addGateWatchListener(new GateWatchListener() {
             public void reportStatus(String statusString) {
-                reportString = statusString;
+                reportString.add(statusString);
             }
         });
 
@@ -31,6 +40,6 @@ public class TestGateWatcher {
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
         testGate.getValue();
 
-        assertEquals(reportString, "1 0 1 -> 0");
+        assertEquals(reportString.get(0), "1 0 1 -> 0");
     }
 }
