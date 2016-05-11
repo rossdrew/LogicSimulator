@@ -3,14 +3,17 @@ package com.rox.logic.gate.com.rox.logic.gate.dec;
 import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.binary.And;
+import com.rox.logic.gate.binary.Or;
 import com.rox.logic.gate.dec.GateWatcher;
 import com.rox.logic.gate.dec.watch.GateWatchListener;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -51,10 +54,40 @@ public class TestGateWatcher {
 
         testGate = gateWatcher;
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
-        testGate.getValue();
 
-        assertEquals("1 0 1 -> 0", reportString.get(0));
-        assertFalse(testGate.getValue());
+        boolean result = testGate.getValue();
+        gateWatcher.removeGateWatchListener(listener);
+
+        assertFalse(result);
+        assertEquals(1, reportString.size());
+        assertEquals("1 0 1 -(And)-> 0", reportString.get(0));
+    }
+
+    /**
+     * (T) ---¬
+     * (F) --[OR]----¬
+     * (T) ---------[AND]--- (T)
+     */
+    @Test
+    public void testTwoWatchedGates(){
+        LogicGate internalOrGate = new Or();
+        internalOrGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        GateWatcher orGateWatcher = new GateWatcher(internalOrGate);
+        orGateWatcher.addGateWatchListener(listener);
+
+        LogicGate internalAndGate = new And();
+        internalAndGate.setInput(LogicalTrue.instance(), orGateWatcher);
+        GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
+        andGateWatcher.addGateWatchListener(listener);
+
+        testGate = andGateWatcher;
+        boolean result = testGate.getValue();
+
+        orGateWatcher.removeGateWatchListener(listener);
+        andGateWatcher.removeGateWatchListener(listener);
+
+        assertTrue(result);
+        assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 2, reportString.size());
     }
 
     @Test

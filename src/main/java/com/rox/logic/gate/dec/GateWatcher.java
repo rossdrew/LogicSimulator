@@ -24,6 +24,10 @@ public class GateWatcher implements LogicGate {
         listeners.add(listener);
     }
 
+    public void removeGateWatchListener(GateWatchListener listener){
+        listeners.remove(listener);
+    }
+
     public void setInput(LogicValueProducer... inputs) {
         internalGate.setInput(inputs);
     }
@@ -40,7 +44,8 @@ public class GateWatcher implements LogicGate {
 
         boolean returnValue = internalGate.getValue();
 
-        reportStatusString(inputs + "-> " + (returnValue ? "1" : "0"));
+        String gateName = internalGate.getClass().getSimpleName();
+        reportStatusString(inputs + "-("+ gateName + ")-> " + (returnValue ? "1" : "0"));
 
         return returnValue;
     }
