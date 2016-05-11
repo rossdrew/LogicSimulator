@@ -27,6 +27,8 @@ public class Mux implements LogicGate{
     }
 
     public void setInput(LogicValueProducer... inputs) {
+        this.inputs = inputs;
+
         endNAND.setInput(middleNAND1, middleNAND2);
 
         middleNAND1.setInput(inputs[0], inverter);

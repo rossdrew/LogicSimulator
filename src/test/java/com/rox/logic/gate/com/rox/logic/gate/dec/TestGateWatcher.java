@@ -1,6 +1,7 @@
 package com.rox.logic.gate.com.rox.logic.gate.dec;
 
 import com.rox.logic.LogicGate;
+import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.binary.And;
 import com.rox.logic.gate.dec.GateWatcher;
 import com.rox.logic.gate.dec.watch.GateWatchListener;
@@ -12,7 +13,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * @Author rossdrew
@@ -34,6 +35,16 @@ public class TestGateWatcher {
     }
 
     @Test
+    public void testGetInput(){
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+
+        GateWatcher gateWatcher = new GateWatcher(new And());
+        testGate = gateWatcher;
+        testGate.setInput(inputs);
+        assertArrayEquals(inputs, testGate.getInput());
+    }
+
+    @Test
     public void testOneWatchedGate(){
         GateWatcher gateWatcher = new GateWatcher(new And());
         gateWatcher.addGateWatchListener(listener);
@@ -42,6 +53,21 @@ public class TestGateWatcher {
         testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
         testGate.getValue();
 
-        assertEquals(reportString.get(0), "1 0 1 -> 0");
+        assertEquals("1 0 1 -> 0", reportString.get(0));
+        assertFalse(testGate.getValue());
+    }
+
+    @Test
+    public void testNoListeners(){
+        try {
+            GateWatcher gateWatcher = new GateWatcher(new And());
+
+            testGate = gateWatcher;
+            testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+            testGate.getValue();
+            assertTrue(reportString.size() == 0);
+        }catch (Exception e){
+            fail("The absence of a gate watch listener has caused an exception");
+        }
     }
 }

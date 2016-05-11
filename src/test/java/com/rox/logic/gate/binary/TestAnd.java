@@ -11,6 +11,7 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * @Author rossdrew
@@ -22,6 +23,13 @@ public class TestAnd {
     @Before
     public void setup(){
         testGate = new And();
+    }
+
+    @Test
+    public void testGetInput(){
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+        testGate.setInput(inputs);
+        assertArrayEquals(inputs, testGate.getInput());
     }
 
     @Test
