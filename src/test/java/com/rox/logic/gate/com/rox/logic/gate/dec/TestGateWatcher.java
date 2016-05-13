@@ -47,20 +47,24 @@ public class TestGateWatcher {
         assertArrayEquals(inputs, testGate.getInput());
     }
 
+    /**
+     * (F) ---¬
+     * (T) --[AND]---(F)
+     */
     @Test
     public void testOneWatchedGate(){
         GateWatcher gateWatcher = new GateWatcher(new And());
         gateWatcher.addGateWatchListener(listener);
 
         testGate = gateWatcher;
-        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
 
         boolean result = testGate.getValue();
         gateWatcher.removeGateWatchListener(listener);
 
         assertFalse(result);
-        assertEquals(1, reportString.size());
-        assertEquals("1 0 1 -(And)-> 0", reportString.get(0));
+        assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 1, reportString.size());
+        assertEquals("0 1 -(And)-> 0", reportString.get(0));
     }
 
     /**
@@ -88,6 +92,7 @@ public class TestGateWatcher {
 
         assertTrue(result);
         assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 2, reportString.size());
+        assertEquals("0 1 -(And)-> 0", reportString.get(0)); //XXX not got this far yet
     }
 
     @Test
