@@ -39,10 +39,10 @@ public class GateWatcher implements LogicGate {
     public boolean getValue() {
         String inputs = "";
         for (LogicValueProducer input : internalGate.getInput()){
-            inputs += (input.getValue() ? "1 " : "0 ");
+            inputs += (input.getValue() ? "1 " : "0 ");//XXX (1) this will make a call to linked gate, the first of two
         }
 
-        boolean returnValue = internalGate.getValue();
+        boolean returnValue = internalGate.getValue(); //XXX (2) This will call a linked gate via this ones getValue
 
         String gateName = internalGate.getClass().getSimpleName();
         reportStatusString(inputs + "-("+ gateName + ")-> " + (returnValue ? "1" : "0"));

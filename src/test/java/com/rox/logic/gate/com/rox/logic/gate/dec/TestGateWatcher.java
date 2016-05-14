@@ -84,6 +84,8 @@ public class TestGateWatcher {
         GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
         andGateWatcher.addGateWatchListener(listener);
 
+        //TODO getting inputs information calls getValue on Or then the getValue does it
+
         testGate = andGateWatcher;
         boolean result = testGate.getValue();
 
