@@ -48,6 +48,6 @@ public class TestAuditableLogicGate {
 
     @Test
     public void testWithNoInputs(){
-        assertFalse("No inputs should assume all inputs are false", testGate.getValue());
+        assertFalse("In the case of no inputs, should assume all inputs are false", testGate.getValue());
     }
 }
