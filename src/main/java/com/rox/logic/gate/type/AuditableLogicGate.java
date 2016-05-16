@@ -23,9 +23,13 @@ public abstract class AuditableLogicGate implements LogicGate {
     }
 
     public boolean getValue(){
-        boolean[] inputValues = new boolean[inputs.length];
-        for (int i = 0; i < inputs.length; i++){
-            inputValues[i] = inputs[i] == null ? false : inputs[i].getValue();
+        boolean[] inputValues = new boolean[]{};
+
+        if (inputs != null) {
+            inputValues = new boolean[inputs.length];
+            for (int i = 0; i < inputs.length; i++) {
+                inputValues[i] = inputs[i] == null ? false : inputs[i].getValue();
+            }
         }
 
         boolean transformedValue =  performTransformation(inputValues);

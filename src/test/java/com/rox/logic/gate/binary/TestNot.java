@@ -46,7 +46,8 @@ public class TestNot {
     @Test
     public void testNullInput(){
         testGate.setInput(null);
-        //XXX What SHOULD be the output from a NOT with a null input
-        assertFalse(testGate.getValue());
+        //XXX What SHOULD be the output from a NOT with a null input,
+        //    I'm assuming a null input == false so the output is true
+        assertTrue(testGate.getValue());
     }
 }
