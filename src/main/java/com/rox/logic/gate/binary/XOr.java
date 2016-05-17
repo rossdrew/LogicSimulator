@@ -34,6 +34,11 @@ public class XOr extends AuditableLogicGate {
         return returnValue;
     }
 
+    @Override
+    protected void performSetInputPostOpertations() {
+
+    }
+
     public String getStringIdentifier() {
         return "XOR";
     }

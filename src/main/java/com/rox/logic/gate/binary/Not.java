@@ -14,6 +14,11 @@ public class Not extends AuditableLogicGate {
         return !(values == null || values.length < 1 ? false : values[0]);
     }
 
+    @Override
+    protected void performSetInputPostOpertations() {
+
+    }
+
     public String getStringIdentifier() {
         return "NOT";
     }

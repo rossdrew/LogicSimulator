@@ -2,7 +2,9 @@ package com.rox.logic.gate.compound;
 
 import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
+import com.rox.logic.gate.binary.And;
 import com.rox.logic.gate.binary.Not;
+import com.rox.logic.gate.type.AuditableLogicGate;
 
 /**
  * 2-Input Multiplexer<br/>
@@ -14,20 +16,20 @@ import com.rox.logic.gate.binary.Not;
  * @Author rossdrew
  * @Created 02/05/16.
  */
-public class Mux implements LogicGate{
-    private LogicValueProducer[] inputs;
-
+public class Mux extends AuditableLogicGate {
     private NAnd endNAND = new NAnd();
     private NAnd middleNAND1 = new NAnd();
     private NAnd middleNAND2 = new NAnd();
     private Not inverter = new Not();
 
-    public LogicValueProducer[] getInput() {
-        return inputs;
+    @Override
+    protected boolean performTransformation(boolean... values) {
+        return endNAND.getValue();
     }
 
-    public void setInput(LogicValueProducer... inputs) {
-        this.inputs = inputs;
+    @Override
+    public void performSetInputPostOpertations() {
+        LogicValueProducer[] inputs = getInput();
 
         endNAND.setInput(middleNAND1, middleNAND2);
 
@@ -35,10 +37,6 @@ public class Mux implements LogicGate{
         middleNAND2.setInput(inputs[1], inputs[2]);
 
         inverter.setInput(inputs[2]);
-    }
-
-    public boolean getValue() {
-        return endNAND.getValue();
     }
 
     public String getStringIdentifier() {

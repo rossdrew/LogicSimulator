@@ -8,7 +8,7 @@ import com.rox.logic.LogicValueProducer;
  * @Created 15/05/16.
  */
 public abstract class AuditableLogicGate implements LogicGate {
-    private LogicValueProducer[] inputs = new LogicValueProducer[] {};
+    protected LogicValueProducer[] inputs = new LogicValueProducer[] {};
 
     private boolean[] lastEvaluatedInputs;
     private boolean lastEvaluatedResult;
@@ -16,6 +16,7 @@ public abstract class AuditableLogicGate implements LogicGate {
 
     public void setInput(LogicValueProducer... inputs){
         this.inputs = inputs;
+        performSetInputPostOpertations();
     }
 
     public LogicValueProducer[] getInput() {
@@ -41,6 +42,7 @@ public abstract class AuditableLogicGate implements LogicGate {
     }
 
     protected abstract boolean performTransformation(boolean... values);
+    protected abstract void performSetInputPostOpertations();
 
     public boolean isUnused() {
         return isUnused;

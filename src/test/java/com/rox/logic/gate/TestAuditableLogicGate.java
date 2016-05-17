@@ -37,6 +37,11 @@ public class TestAuditableLogicGate {
 
                 return r;
             }
+
+            @Override
+            protected void performSetInputPostOpertations() {
+
+            }
         };
     }
 

@@ -19,6 +19,10 @@ public class And extends AuditableLogicGate {
         return true;
     }
 
+    @Override
+    protected void performSetInputPostOpertations() {
+    }
+
     public String getStringIdentifier() {
         return "AND";
     }

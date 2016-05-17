@@ -19,6 +19,11 @@ public class Or extends AuditableLogicGate {
         return false;
     }
 
+    @Override
+    protected void performSetInputPostOpertations() {
+
+    }
+
     public String getStringIdentifier() {
         return "OR";
     }
