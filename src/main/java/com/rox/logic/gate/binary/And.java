@@ -18,4 +18,8 @@ public class And extends AuditableLogicGate {
         }
         return true;
     }
+
+    public String getStringIdentifier() {
+        return "AND";
+    }
 }

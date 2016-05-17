@@ -23,4 +23,8 @@ public class XOr extends AuditableLogicGate {
         }
         return oneOn;
     }
+
+    public String getStringIdentifier() {
+        return "XOR";
+    }
 }

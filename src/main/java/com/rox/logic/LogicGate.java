@@ -7,4 +7,5 @@ package com.rox.logic;
 public interface LogicGate extends LogicValueProducer {
     void setInput(LogicValueProducer...inputs);
     LogicValueProducer[] getInput();
+    String getStringIdentifier();
 }

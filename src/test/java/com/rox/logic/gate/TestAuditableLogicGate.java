@@ -22,6 +22,10 @@ public class TestAuditableLogicGate {
     @Before
     public void setup(){
         testGate = new AuditableLogicGate(){
+            public String getStringIdentifier() {
+                return "TEST";
+            }
+
             @Override
             protected boolean performTransformation(boolean... values) {
                 //Return true if any inputs are true

@@ -38,11 +38,15 @@ public class GateWatcher implements LogicGate {
         return internalGate.getInput();
     }
 
+    public String getStringIdentifier() {
+        return internalGate.getStringIdentifier();
+    }
+
     public boolean getValue() {
         boolean returnValue = internalGate.getValue();
 
         String inputs = inputsToString(internalGate.getLastEvaluatedInputs());
-        String gateName = internalGate.getClass().getSimpleName();
+        String gateName = internalGate.getStringIdentifier();
 
         reportStatusString(inputs + "-("+ gateName + ")-> " + (returnValue ? "1" : "0"));
 

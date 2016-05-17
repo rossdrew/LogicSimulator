@@ -13,4 +13,8 @@ public class Not extends AuditableLogicGate {
     protected boolean performTransformation(boolean... values) {
         return !(values == null || values.length < 1 ? false : values[0]);
     }
+
+    public String getStringIdentifier() {
+        return "NOT";
+    }
 }

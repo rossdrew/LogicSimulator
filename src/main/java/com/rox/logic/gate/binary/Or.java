@@ -18,4 +18,8 @@ public class Or extends AuditableLogicGate {
         }
         return false;
     }
+
+    public String getStringIdentifier() {
+        return "OR";
+    }
 }

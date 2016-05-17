@@ -18,4 +18,8 @@ public class NOr extends AuditableLogicGate {
         }
         return true;
     }
+
+    public String getStringIdentifier() {
+        return "NOR";
+    }
 }

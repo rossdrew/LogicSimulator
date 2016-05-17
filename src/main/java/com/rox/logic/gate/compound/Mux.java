@@ -40,4 +40,8 @@ public class Mux implements LogicGate{
     public boolean getValue() {
         return endNAND.getValue();
     }
+
+    public String getStringIdentifier() {
+        return "MUX";
+    }
 }

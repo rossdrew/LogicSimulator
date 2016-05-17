@@ -31,4 +31,8 @@ public class XNOr extends AuditableLogicGate {
 
         return returnValue;
     }
+
+    public String getStringIdentifier() {
+        return "XNOR";
+    }
 }

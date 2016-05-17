@@ -20,4 +20,8 @@ public class NAnd extends AuditableLogicGate {
         }
         return false;
     }
+
+    public String getStringIdentifier() {
+        return "NAND";
+    }
 }
