@@ -11,17 +11,27 @@ import com.rox.logic.gate.type.AuditableLogicGate;
 public class XOr extends AuditableLogicGate {
     @Override
     protected boolean performTransformation(boolean... values) {
-        boolean oneOn = false;
+        boolean returnValue = false;
 
-        for (boolean v : values){
-            if (v){
-                if (oneOn){
-                    return false;
+        //No inputs == all false inputs so output will be true
+        if (values.length > 0) {
+            //A single gate means there's also an implied null(false) gate
+            if (values.length == 1) {
+                returnValue = !values[0];
+            } else {
+                boolean lastValue = values[0];
+                for (int v = 1; v < values.length; v++) {
+                    if (values[v] != lastValue) {
+                        returnValue = true;
+                        break;
+                    }
+
+                    lastValue = values[v];
                 }
-                oneOn = true;
             }
         }
-        return oneOn;
+
+        return returnValue;
     }
 
     public String getStringIdentifier() {
