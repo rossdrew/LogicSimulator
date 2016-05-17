@@ -4,6 +4,7 @@ import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
+import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,5 +50,11 @@ public class TestNot {
         //XXX What SHOULD be the output from a NOT with a null input,
         //    I'm assuming a null input == false so the output is true
         assertTrue(testGate.getValue());
+    }
+
+
+    @Test
+    public void testName(){
+        Assert.assertEquals("NOT", testGate.getStringIdentifier());
     }
 }

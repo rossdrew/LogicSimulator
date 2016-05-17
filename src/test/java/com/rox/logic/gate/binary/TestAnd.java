@@ -68,5 +68,10 @@ public class TestAnd {
         assertFalse(testGate.getValue());
     }
 
+    @Test
+    public void testName(){
+        assertEquals("AND", testGate.getStringIdentifier());
+    }
+
     //Test for too many inputs?
 }

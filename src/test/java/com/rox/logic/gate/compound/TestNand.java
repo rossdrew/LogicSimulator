@@ -7,6 +7,7 @@ import com.rox.logic.state.LogicalTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertArrayEquals;
@@ -64,5 +65,11 @@ public class TestNand {
     public void testNullBInput(){
         testGate.setInput(LogicalTrue.instance(), null);
         assertTrue(testGate.getValue());
+    }
+
+
+    @Test
+    public void testName(){
+        assertEquals("NAND", testGate.getStringIdentifier());
     }
 }

@@ -7,6 +7,7 @@ import com.rox.logic.state.LogicalTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertArrayEquals;
@@ -64,5 +65,11 @@ public class TestMux {
     public void testTwoIsFalseAndSelected(){
         testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
         assertFalse("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
+    }
+
+
+    @Test
+    public void testName(){
+        assertEquals("MUX", testGate.getStringIdentifier());
     }
 }

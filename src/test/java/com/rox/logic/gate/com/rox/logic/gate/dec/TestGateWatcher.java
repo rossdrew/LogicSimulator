@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.*;
 
 /**
@@ -109,5 +110,18 @@ public class TestGateWatcher {
         }catch (Exception e){
             fail("The absence of a gate watch listener has caused an exception");
         }
+    }
+
+
+    @Test
+    public void testName(){
+        AuditableLogicGate internalAndGate = new And();
+        internalAndGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
+        andGateWatcher.addGateWatchListener(listener);
+
+        testGate = andGateWatcher;
+
+        assertEquals("Name should be the name of the internal gate", "AND", testGate.getStringIdentifier());
     }
 }

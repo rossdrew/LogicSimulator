@@ -6,6 +6,8 @@ import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
 import org.junit.Before;
 import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertArrayEquals;
@@ -63,6 +65,11 @@ public class TestOr {
     public void testNullBTrueAInput(){
         testGate.setInput(LogicalTrue.instance(), null);
         assertTrue(testGate.getValue());
+    }
+
+    @Test
+    public void testName(){
+        assertEquals("OR", testGate.getStringIdentifier());
     }
 
     //Test for too many inputs?
