@@ -39,7 +39,7 @@ public class TestAuditableLogicGate {
             }
 
             @Override
-            protected void performSetInputPostOpertations() {
+            protected void performSetInputPostOperations() {
 
             }
         };

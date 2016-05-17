@@ -28,7 +28,7 @@ public class Mux extends AuditableLogicGate {
     }
 
     @Override
-    public void performSetInputPostOpertations() {
+    public void performSetInputPostOperations() {
         LogicValueProducer[] inputs = getInput();
 
         endNAND.setInput(middleNAND1, middleNAND2);

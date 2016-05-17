@@ -16,7 +16,7 @@ public abstract class AuditableLogicGate implements LogicGate {
 
     public void setInput(LogicValueProducer... inputs){
         this.inputs = inputs;
-        performSetInputPostOpertations();
+        performSetInputPostOperations();
     }
 
     public LogicValueProducer[] getInput() {
@@ -42,7 +42,7 @@ public abstract class AuditableLogicGate implements LogicGate {
     }
 
     protected abstract boolean performTransformation(boolean... values);
-    protected abstract void performSetInputPostOpertations();
+    protected abstract void performSetInputPostOperations();
 
     public boolean isUnused() {
         return isUnused;

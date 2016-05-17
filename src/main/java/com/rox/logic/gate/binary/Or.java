@@ -20,7 +20,7 @@ public class Or extends AuditableLogicGate {
     }
 
     @Override
-    protected void performSetInputPostOpertations() {
+    protected void performSetInputPostOperations() {
 
     }
 

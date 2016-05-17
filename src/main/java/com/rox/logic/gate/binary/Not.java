@@ -15,7 +15,7 @@ public class Not extends AuditableLogicGate {
     }
 
     @Override
-    protected void performSetInputPostOpertations() {
+    protected void performSetInputPostOperations() {
 
     }
 
