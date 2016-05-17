@@ -3,8 +3,10 @@ package com.rox.logic.gate.dec;
 import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.dec.watch.GateWatchListener;
+import com.rox.logic.gate.type.AuditableLogicGate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,11 +14,11 @@ import java.util.List;
  * @Created 05/05/16.
  */
 public class GateWatcher implements LogicGate {
-    private LogicGate internalGate;
+    private AuditableLogicGate internalGate;
 
     private List<GateWatchListener> listeners = new ArrayList<GateWatchListener>();
 
-    public GateWatcher(LogicGate gate){
+    public GateWatcher(AuditableLogicGate gate){
         internalGate = gate;
     }
 
@@ -37,17 +39,23 @@ public class GateWatcher implements LogicGate {
     }
 
     public boolean getValue() {
-        String inputs = "";
-        for (LogicValueProducer input : internalGate.getInput()){
-            inputs += (input.getValue() ? "1 " : "0 ");//XXX (1) this will make a call to linked gate, the first of two
-        }
+        boolean returnValue = internalGate.getValue();
 
-        boolean returnValue = internalGate.getValue(); //XXX (2) This will call a linked gate via this ones getValue
-
+        String inputs = inputsToString(internalGate.getLastEvaluatedInputs());
         String gateName = internalGate.getClass().getSimpleName();
+
         reportStatusString(inputs + "-("+ gateName + ")-> " + (returnValue ? "1" : "0"));
 
         return returnValue;
+    }
+
+    private String inputsToString(boolean[] inputs){
+        String inputsString = "";
+        for (boolean i : inputs){
+            inputsString += (i ? "1":"0") + " ";
+        }
+
+        return inputsString;
     }
 
     private void reportStatusString(String statusString){

@@ -6,6 +6,7 @@ import com.rox.logic.gate.binary.And;
 import com.rox.logic.gate.binary.Or;
 import com.rox.logic.gate.dec.GateWatcher;
 import com.rox.logic.gate.dec.watch.GateWatchListener;
+import com.rox.logic.gate.type.AuditableLogicGate;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
 import org.junit.After;
@@ -74,17 +75,15 @@ public class TestGateWatcher {
      */
     @Test
     public void testTwoWatchedGates(){
-        LogicGate internalOrGate = new Or();
+        AuditableLogicGate internalOrGate = new Or();
         internalOrGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
         GateWatcher orGateWatcher = new GateWatcher(internalOrGate);
         orGateWatcher.addGateWatchListener(listener);
 
-        LogicGate internalAndGate = new And();
+        AuditableLogicGate internalAndGate = new And();
         internalAndGate.setInput(LogicalTrue.instance(), orGateWatcher);
         GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
         andGateWatcher.addGateWatchListener(listener);
-
-        //TODO getting inputs information calls getValue on Or then the getValue does it
 
         testGate = andGateWatcher;
         boolean result = testGate.getValue();
@@ -93,8 +92,9 @@ public class TestGateWatcher {
         andGateWatcher.removeGateWatchListener(listener);
 
         assertTrue(result);
-//        assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 2, reportString.size());
-  //      assertEquals("0 1 -(And)-> 0", reportString.get(0)); //XXX not got this far yet
+        assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 2, reportString.size());
+        assertEquals("1 0 -(Or)-> 1", reportString.get(0));
+        assertEquals("1 1 -(And)-> 1", reportString.get(1));
     }
 
     @Test
