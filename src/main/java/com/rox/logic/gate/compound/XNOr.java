@@ -1,27 +1,34 @@
 package com.rox.logic.gate.compound;
 
-import com.rox.logic.LogicGate;
-import com.rox.logic.LogicValueProducer;
+import com.rox.logic.gate.type.AuditableLogicGate;
 
 /**
  * @Author rossdrew
  * @Created 05/05/16.
  */
-public class XNOr implements LogicGate {
-    private LogicValueProducer[] inputs;
+public class XNOr extends AuditableLogicGate {
+    @Override
+    protected boolean performTransformation(boolean... values) {
+        boolean returnValue = true;
 
-    public void setInput(LogicValueProducer... inputs) {
-        this.inputs = inputs;
-    }
+        //No inputs == all false inputs so output will be true
+        if (values.length > 0) {
+            //A single gate means there's also an implied null(false) gate
+            if (values.length == 1) {
+                returnValue = !values[0];
+            } else {
+                boolean lastValue = values[0];
+                for (int v = 1; v < values.length; v++) {
+                    if (values[v] != lastValue) {
+                        returnValue = false;
+                        break;
+                    }
 
-    public LogicValueProducer[] getInput() {
-        return inputs;
-    }
+                    lastValue = values[v];
+                }
+            }
+        }
 
-    public boolean getValue() {
-        boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
-        boolean inputB = inputs[1] == null ? false : inputs[1].getValue();
-
-        return !(inputA^inputB);
+        return returnValue;
     }
 }

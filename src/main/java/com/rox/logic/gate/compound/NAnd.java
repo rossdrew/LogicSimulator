@@ -2,6 +2,7 @@ package com.rox.logic.gate.compound;
 
 import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
+import com.rox.logic.gate.type.AuditableLogicGate;
 
 /**
  * @Author rossdrew
@@ -9,21 +10,14 @@ import com.rox.logic.LogicValueProducer;
  *
  * There is obviously a simpler way to do this but I am testing simple compound gates here, for now
  */
-public class NAnd implements LogicGate{
-    private LogicValueProducer[] inputs;
-
-    public void setInput(LogicValueProducer... inputs) {
-        this.inputs = inputs;
-    }
-
-    public LogicValueProducer[] getInput() {
-        return inputs;
-    }
-
-    public boolean getValue() {
-        boolean inputA = inputs[0] == null ? false : inputs[0].getValue();
-        boolean inputB = inputs[1] == null ? false : inputs[1].getValue();
-
-        return !(inputA && inputB);
+public class NAnd extends AuditableLogicGate {
+    @Override
+    protected boolean performTransformation(boolean... values) {
+        for (boolean v : values){
+            if (!v){
+                return true;
+            }
+        }
+        return false;
     }
 }
