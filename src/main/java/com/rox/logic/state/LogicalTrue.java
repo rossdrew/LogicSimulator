@@ -7,12 +7,7 @@ import com.rox.logic.LogicValueProducer;
  * @Created 02/05/16.
  */
 public class LogicalTrue implements LogicValueProducer {
-    private static LogicalTrue me = new LogicalTrue();
-
-    public static LogicalTrue instance(){
-        return me;
-    }
-
+    public static final LogicalTrue INSTANCE = new LogicalTrue();
 
     public boolean getValue() {
         return true;

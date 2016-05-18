@@ -47,7 +47,7 @@ public class TestAuditableLogicGate {
 
     @Test
     public void testExecution(){
-        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE);
 
         assertTrue("Should get value from implementer of abstract class", testGate.getValue());
         assertFalse("Gate was used, should be marked as such", testGate.isUnused());

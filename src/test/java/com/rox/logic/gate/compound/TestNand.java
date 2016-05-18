@@ -26,44 +26,44 @@ public class TestNand {
 
     @Test
     public void testGetInput(){
-        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE};
         testGate.setInput(inputs);
         assertArrayEquals(inputs, testGate.getInput());
     }
 
     @Test
     public void testTwoTrueInputs(){
-        testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalTrue.INSTANCE);
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testTwoFalseInputs(){
-        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalFalse.INSTANCE);
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testFalseBInput(){
-        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE);
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testFalseAInput(){
-        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalTrue.INSTANCE);
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullAInput(){
-        testGate.setInput(null, LogicalTrue.instance());
+        testGate.setInput(null, LogicalTrue.INSTANCE);
         assertTrue(testGate.getValue());
     }
 
     @Test
     public void testNullBInput(){
-        testGate.setInput(LogicalTrue.instance(), null);
+        testGate.setInput(LogicalTrue.INSTANCE, null);
         assertTrue(testGate.getValue());
     }
 

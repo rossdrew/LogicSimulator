@@ -7,11 +7,7 @@ import com.rox.logic.LogicValueProducer;
  * @Created 02/05/16.
  */
 public class LogicalFalse implements LogicValueProducer {
-    private static LogicalFalse me = new LogicalFalse();
-
-    public static LogicalFalse instance(){
-        return me;
-    }
+    public static final LogicalFalse INSTANCE = new LogicalFalse();
 
     public boolean getValue() {
         return false;

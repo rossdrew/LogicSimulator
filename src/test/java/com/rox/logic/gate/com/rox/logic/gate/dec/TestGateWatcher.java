@@ -41,7 +41,7 @@ public class TestGateWatcher {
 
     @Test
     public void testGetInput(){
-        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE};
 
         GateWatcher gateWatcher = new GateWatcher(new And());
         testGate = gateWatcher;
@@ -59,7 +59,7 @@ public class TestGateWatcher {
         gateWatcher.addGateWatchListener(listener);
 
         testGate = gateWatcher;
-        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalTrue.INSTANCE);
 
         boolean result = testGate.getValue();
         gateWatcher.removeGateWatchListener(listener);
@@ -77,12 +77,12 @@ public class TestGateWatcher {
     @Test
     public void testTwoWatchedGates(){
         AuditableLogicGate internalOrGate = new Or();
-        internalOrGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        internalOrGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE);
         GateWatcher orGateWatcher = new GateWatcher(internalOrGate);
         orGateWatcher.addGateWatchListener(listener);
 
         AuditableLogicGate internalAndGate = new And();
-        internalAndGate.setInput(LogicalTrue.instance(), orGateWatcher);
+        internalAndGate.setInput(LogicalTrue.INSTANCE, orGateWatcher);
         GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
         andGateWatcher.addGateWatchListener(listener);
 
@@ -104,7 +104,7 @@ public class TestGateWatcher {
             GateWatcher gateWatcher = new GateWatcher(new And());
 
             testGate = gateWatcher;
-            testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+            testGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE);
             testGate.getValue();
             assertTrue(reportString.size() == 0);
         }catch (Exception e){
@@ -116,7 +116,7 @@ public class TestGateWatcher {
     @Test
     public void testName(){
         AuditableLogicGate internalAndGate = new And();
-        internalAndGate.setInput(LogicalTrue.instance(), LogicalFalse.instance());
+        internalAndGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE);
         GateWatcher andGateWatcher = new GateWatcher(internalAndGate);
         andGateWatcher.addGateWatchListener(listener);
 

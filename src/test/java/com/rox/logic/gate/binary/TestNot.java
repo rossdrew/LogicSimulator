@@ -27,20 +27,20 @@ public class TestNot {
 
     @Test
     public void testGetInput(){
-        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE};
         testGate.setInput(inputs);
         assertArrayEquals(inputs, testGate.getInput());
     }
 
     @Test
     public void testTrueInput(){
-        testGate.setInput(LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.INSTANCE);
         assertFalse(testGate.getValue());
     }
 
     @Test
     public void testFalseInput(){
-        testGate.setInput(LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.INSTANCE);
         assertTrue(testGate.getValue());
     }
 

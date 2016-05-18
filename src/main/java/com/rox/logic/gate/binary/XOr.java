@@ -1,7 +1,5 @@
 package com.rox.logic.gate.binary;
 
-import com.rox.logic.LogicGate;
-import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.type.AuditableLogicGate;
 
 /**
@@ -13,21 +11,20 @@ public class XOr extends AuditableLogicGate {
     protected boolean performTransformation(boolean... values) {
         boolean returnValue = false;
 
-        //No inputs == all false inputs so output will be true
-        if (values.length > 0) {
-            //A single gate means there's also an implied null(false) gate
-            if (values.length == 1) {
-                returnValue = !values[0];
-            } else {
-                boolean lastValue = values[0];
-                for (int v = 1; v < values.length; v++) {
-                    if (values[v] != lastValue) {
-                        returnValue = true;
-                        break;
-                    }
-
-                    lastValue = values[v];
+        if (values.length == 0) {
+            //No inputs == all implied false inputs
+        }else if (values.length == 1) {
+            //Single input means there's also an implied null(false) gate
+            returnValue = values[0];
+        }else{
+            boolean lastValue = values[0];
+            for (int v = 1; v < values.length; v++) {
+                if (values[v] != lastValue) {
+                    returnValue = true;
+                    break;
                 }
+
+                lastValue = values[v];
             }
         }
 

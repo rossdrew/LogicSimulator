@@ -13,8 +13,12 @@ import com.rox.logic.gate.type.AuditableLogicGate;
  * <br/>
  * More for testing gate chaining than anything else.
  *
+ * (1)--[NAND2]---------¬
+ *    __/             [EndNAND]---(o)
+ * (2)---[NOT]--¬       /
+ * (0)--------[NAND1]__/
+ *
  * @Author rossdrew
- * @Created 02/05/16.
  */
 public class Mux extends AuditableLogicGate {
     private NAnd endNAND = new NAnd();

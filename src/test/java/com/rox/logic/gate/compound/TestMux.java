@@ -26,44 +26,54 @@ public class TestMux {
 
     @Test
     public void testGetInput(){
-        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.instance(), LogicalFalse.instance(), LogicalTrue.instance()};
+        LogicValueProducer[] inputs = new LogicValueProducer[] {LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE};
         testGate.setInput(inputs);
         assertArrayEquals(inputs, testGate.getInput());
     }
 
     @Test
     public void testTrueInput(){
-        testGate.setInput(LogicalTrue.instance(), LogicalTrue.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalTrue.INSTANCE, LogicalTrue.INSTANCE);
         assertTrue("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
     }
 
     @Test
     public void testFalseInput(){
-        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalFalse.INSTANCE, LogicalFalse.INSTANCE);
         assertFalse("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
     public void testOneIsTrueAndSelected(){
-        testGate.setInput(LogicalTrue.instance(), LogicalFalse.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalFalse.INSTANCE);
         assertTrue("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
     public void testOneIsFalseAndSelected(){
-        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance(), LogicalFalse.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalTrue.INSTANCE, LogicalFalse.INSTANCE);
         assertFalse("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
     public void testTwoIsTrueAndSelected(){
-        testGate.setInput(LogicalFalse.instance(), LogicalTrue.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalTrue.INSTANCE, LogicalTrue.INSTANCE);
         assertTrue("Selector (input 3) is false so output should be that of input 1", testGate.getValue());
     }
 
     @Test
     public void testTwoIsFalseAndSelected(){
-        testGate.setInput(LogicalFalse.instance(), LogicalFalse.instance(), LogicalTrue.instance());
+        testGate.setInput(LogicalFalse.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE);
+        assertFalse("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
+    }
+
+    /**
+     * XXX pitest caught this edge case, perhaps I should start testing based on a
+     *     truith table instead to avoid this and make tests more readable.
+     */
+    @Test
+    public void testFalseOutputFrom2ndInputWhile1stIsTrue(){
+        testGate.setInput(LogicalTrue.INSTANCE, LogicalFalse.INSTANCE, LogicalTrue.INSTANCE);
         assertFalse("Selector (input 3) is true so output should be that of input 2", testGate.getValue());
     }
 
