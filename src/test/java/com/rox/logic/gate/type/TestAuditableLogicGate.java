@@ -1,4 +1,4 @@
-package com.rox.logic.gate;
+package com.rox.logic.gate.type;
 
 import com.rox.logic.gate.type.AuditableLogicGate;
 import com.rox.logic.state.LogicalFalse;
