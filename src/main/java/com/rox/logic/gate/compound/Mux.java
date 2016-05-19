@@ -1,8 +1,6 @@
 package com.rox.logic.gate.compound;
 
-import com.rox.logic.LogicGate;
 import com.rox.logic.LogicValueProducer;
-import com.rox.logic.gate.binary.And;
 import com.rox.logic.gate.binary.Not;
 import com.rox.logic.gate.type.AuditableLogicGate;
 

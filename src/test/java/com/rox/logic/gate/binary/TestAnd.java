@@ -1,10 +1,9 @@
 package com.rox.logic.gate.binary;
 
-import com.rox.logic.LogicGate;
+import com.rox.logic.gate.LogicGate;
 import com.rox.logic.LogicValueProducer;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
-import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

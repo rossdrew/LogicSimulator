@@ -1,12 +1,10 @@
-package com.rox.logic.gate.dec;
+package com.rox.logic.gate.watch;
 
-import com.rox.logic.LogicGate;
+import com.rox.logic.gate.LogicGate;
 import com.rox.logic.LogicValueProducer;
-import com.rox.logic.gate.dec.watch.GateWatchListener;
 import com.rox.logic.gate.type.AuditableLogicGate;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

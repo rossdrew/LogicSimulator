@@ -1,15 +1,14 @@
-package com.rox.logic.gate.com.rox.logic.gate.dec;
+package com.rox.logic.gate.com.rox.logic.gate.watch;
 
-import com.rox.logic.LogicGate;
+import com.rox.logic.gate.LogicGate;
 import com.rox.logic.LogicValueProducer;
 import com.rox.logic.gate.binary.And;
 import com.rox.logic.gate.binary.Or;
-import com.rox.logic.gate.dec.GateWatcher;
-import com.rox.logic.gate.dec.watch.GateWatchListener;
+import com.rox.logic.gate.watch.GateWatcher;
+import com.rox.logic.gate.watch.GateWatchListener;
 import com.rox.logic.gate.type.AuditableLogicGate;
 import com.rox.logic.state.LogicalFalse;
 import com.rox.logic.state.LogicalTrue;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 

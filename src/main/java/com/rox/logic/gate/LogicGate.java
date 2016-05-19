@@ -1,4 +1,6 @@
-package com.rox.logic;
+package com.rox.logic.gate;
+
+import com.rox.logic.LogicValueProducer;
 
 /**
  * @Author rossdrew

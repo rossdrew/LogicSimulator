@@ -1,4 +1,4 @@
-package com.rox.logic.gate.dec.watch;
+package com.rox.logic.gate.watch;
 
 /**
  * @Author rossdrew

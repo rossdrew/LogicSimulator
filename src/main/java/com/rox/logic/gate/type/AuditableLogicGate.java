@@ -1,6 +1,6 @@
 package com.rox.logic.gate.type;
 
-import com.rox.logic.LogicGate;
+import com.rox.logic.gate.LogicGate;
 import com.rox.logic.LogicValueProducer;
 
 /**
