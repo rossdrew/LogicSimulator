@@ -54,7 +54,8 @@ public class TestGateWatcher {
      */
     @Test
     public void testOneWatchedGate(){
-        GateWatcher gateWatcher = new GateWatcher(new And());
+        AuditableLogicGate internalAndGate = new And();
+        GateWatcher gateWatcher = new GateWatcher(internalAndGate);
         gateWatcher.addGateWatchListener(listener);
 
         testGate = gateWatcher;
@@ -65,7 +66,7 @@ public class TestGateWatcher {
 
         assertFalse(result);
         assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 1, reportString.size());
-        assertEquals("0 1 -(AND)-> 0", reportString.get(0));
+        assertEquals("0 1 -(" + internalAndGate.getStringIdentifier() +")-> 0", reportString.get(0));
     }
 
     /**
@@ -93,8 +94,8 @@ public class TestGateWatcher {
 
         assertTrue(result);
         assertEquals("Report output not as expected: " + Arrays.toString(reportString.toArray()), 2, reportString.size());
-        assertEquals("1 0 -(OR)-> 1", reportString.get(0));
-        assertEquals("1 1 -(AND)-> 1", reportString.get(1));
+        assertEquals("1 0 -(" + internalOrGate.getStringIdentifier() +")-> 1", reportString.get(0));
+        assertEquals("1 1 -(" + internalAndGate.getStringIdentifier() +")-> 1", reportString.get(1));
     }
 
     @Test
@@ -121,6 +122,6 @@ public class TestGateWatcher {
 
         testGate = andGateWatcher;
 
-        assertEquals("Name should be the name of the internal gate", "AND", testGate.getStringIdentifier());
+        assertEquals("Name should be the name of the internal gate", internalAndGate.getStringIdentifier(), testGate.getStringIdentifier());
     }
 }
