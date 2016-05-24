@@ -33,9 +33,9 @@ public abstract class AuditableLogicGate implements LogicGate {
             }
         }
 
-        lastEvaluatedResult =  performTransformation(inputValues);
-        lastEvaluatedInputs = inputValues;
         isUnused = false;
+        lastEvaluatedInputs = inputValues;
+        lastEvaluatedResult =  performTransformation(inputValues);
 
         return lastEvaluatedResult;
     }
