@@ -28,8 +28,10 @@ public class TestAuditableLogicGate {
                 //Return true if any inputs are true
                 boolean r = false;
                 for (boolean v : values) {
-                    if (v)
+                    if (v) {
                         r = true;
+                        break;
+                    }
                 }
 
                 return r;

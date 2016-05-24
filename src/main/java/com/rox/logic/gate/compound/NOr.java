@@ -9,7 +9,7 @@ import com.rox.logic.gate.binary.Or;
 public class NOr extends Or {
     @Override
     protected boolean performTransformation(boolean... values) {
-        return!super.performTransformation(values);
+        return !super.performTransformation(values);
     }
 
     public String getStringIdentifier() {
