@@ -33,12 +33,11 @@ public abstract class AuditableLogicGate implements LogicGate {
             }
         }
 
-        boolean transformedValue =  performTransformation(inputValues);
-        isUnused = false;
+        lastEvaluatedResult =  performTransformation(inputValues);
         lastEvaluatedInputs = inputValues;
-        lastEvaluatedResult = transformedValue;
+        isUnused = false;
 
-        return transformedValue;
+        return lastEvaluatedResult;
     }
 
     protected abstract boolean performTransformation(boolean... values);
