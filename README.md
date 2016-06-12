@@ -19,3 +19,7 @@ However, I have included it in my test phase so it is run as part of
 mvn test
 ```
 
+# Future
+
+ - Add some UI for creating gate configurations.
+ - Set up coveralls and integrate a code coverage badge
