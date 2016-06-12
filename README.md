@@ -2,7 +2,7 @@
 
 #LogicSimulator
 
-Simple logic circuit simulator in order to play around with TDD, Mockito and [Pitest](http://pitest.org/)
+Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/) and [Travis](https://travis-ci.com/)
 
 ## Pitest
 
