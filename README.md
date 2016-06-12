@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rossdrew/endpointSim.py.svg?branch=master)](https://travis-ci.org/rossdrew/endpointSim.py)
+[![Build Status](https://travis-ci.org/rossdrew/LogicSimulator.svg?branch=master)](https://travis-ci.org/rossdrew/LogicSimulator)
 
 #LogicSimulator
 
