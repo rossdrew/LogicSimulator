@@ -4,7 +4,7 @@
 
 #LogicSimulator
 
-Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/) and [Travis](https://travis-ci.com/)
+Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/), [Travis CI](https://travis-ci.com/) and [codecov](https://codecov.io/)
 
 ## Pitest
 
@@ -24,4 +24,3 @@ mvn test
 # Future
 
  - Add some UI for creating gate configurations.
- - Set up coveralls/codecov and integrate a code coverage badge
