@@ -4,7 +4,6 @@ import com.rox.logic.gate.binary.XOr;
 
 /**
  * @Author rossdrew
- * @Created 05/05/16.
  */
 public class XNOr extends XOr {
     @Override

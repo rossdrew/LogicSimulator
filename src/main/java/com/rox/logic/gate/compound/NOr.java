@@ -4,7 +4,6 @@ import com.rox.logic.gate.binary.Or;
 
 /**
  * @Author rossdrew
- * @Created 02/05/16.
  */
 public class NOr extends Or {
     @Override

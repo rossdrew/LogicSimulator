@@ -4,7 +4,6 @@ import com.rox.logic.gate.type.AuditableLogicGate;
 
 /**
  * @Author rossdrew
- * @Created 02/05/16.
  */
 public class Or extends AuditableLogicGate {
     @Override

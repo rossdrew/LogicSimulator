@@ -4,7 +4,6 @@ import com.rox.logic.gate.binary.And;
 
 /**
  * @Author rossdrew
- * @Created 05/05/16.
  *
  * There is obviously a simpler way to do this but I am testing simple compound gates here, for now
  */
