@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rossdrew/endpointSim.py.svg?branch=master)](https://travis-ci.org/rossdrew/endpointSim.py)
+
 #LogicSimulator
 
 Simple logic circuit simulator in order to play around with TDD, Mockito and [Pitest](http://pitest.org/)
