@@ -25,7 +25,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <plugin><!-- Mutation Testing -->
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.9</version>
@@ -48,7 +48,7 @@
                 </executions>
             </plugin>
             
-            <plugin>
+            <plugin><!-- Code Coverage XXX already done by pitest, any way to get that to generate reports? -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.5.201505241946</version>
