@@ -5,7 +5,6 @@ import com.rox.logic.LogicValueProducer;
 
 /**
  * @Author rossdrew
- * @Created 15/05/16.
  */
 public abstract class AuditableLogicGate implements LogicGate {
     protected LogicValueProducer[] inputs = new LogicValueProducer[] {};
