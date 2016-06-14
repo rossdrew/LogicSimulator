@@ -4,7 +4,7 @@
 
 #LogicSimulator
 
-Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/), [Travis CI](https://travis-ci.org/) and [codecov](https://codecov.io/)
+Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/), [Travis CI](https://travis-ci.org/) and [codecov](https://codecov.io/) (using JaCoCo)
 
 ## Pitest
 
@@ -20,6 +20,7 @@ However, I have included it in my test phase so it is run as part of
 ```
 mvn test
 ```
+JaCoCo reports are also generated in the test phase.
 
 # Future
 
