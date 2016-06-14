@@ -20,7 +20,7 @@ However, I have included it in my test phase so it is run as part of
 ```
 mvn test
 ```
-JaCoCo reports are also generated in the test phase.
+[JaCoCo](http://eclemma.org/jacoco/) reports are also generated in the test phase.
 
 # Future
 
