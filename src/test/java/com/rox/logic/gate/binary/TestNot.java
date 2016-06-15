@@ -51,6 +51,14 @@ public class TestNot {
         assertTrue(testGate.getValue());
     }
 
+    @Test
+    public void testNoInput(){
+        testGate.setInput();
+        //XXX What SHOULD be the output from a NOT with no input,
+        //    I'm assuming no input == false so the output is true
+        assertTrue(testGate.getValue());
+    }
+
 
     @Test
     public void testName(){

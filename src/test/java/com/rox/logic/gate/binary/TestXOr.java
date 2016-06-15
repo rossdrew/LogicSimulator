@@ -68,6 +68,18 @@ public class TestXOr {
     }
 
     @Test
+    public void testNullInputs(){
+        testGate.setInput(null, null);
+        assertFalse(testGate.getValue());
+    }
+
+    @Test
+    public void testNoInput(){
+        testGate.setInput();
+        assertFalse(testGate.getValue());
+    }
+
+    @Test
     public void testSingleInputTrue(){
         testGate.setInput(LogicalTrue.INSTANCE);
         assertTrue(testGate.getValue());
