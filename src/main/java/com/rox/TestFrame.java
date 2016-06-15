@@ -15,25 +15,25 @@ import java.security.NoSuchAlgorithmException;
  */
 public class TestFrame extends JFrame {
     public TestFrame(){
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(200,200);
-        setVisible(true);
-        add(new JPanel(){
-            private CanvasAdaptor adaptor;
-
-            @Override
-            public void paint(Graphics g) {
-                super.paint(g);
-                if (adaptor == null)
-                    adaptor = new GraphicsAdaptor(g);
-
-                CanvasImage canvasImage = new NotCanvasImage();
-                canvasImage.setCanvasAdaptor(adaptor);
-                canvasImage.setLocation(1,1,100,100);
-
-                canvasImage.draw();
-            }
-        });
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(200,200);
+//        setVisible(true);
+//        add(new JPanel(){
+//            private CanvasAdaptor adaptor;
+//
+//            @Override
+//            public void paint(Graphics g) {
+//                super.paint(g);
+//                if (adaptor == null)
+//                    adaptor = new GraphicsAdaptor(g);
+//
+//                CanvasImage canvasImage = new NotCanvasImage();
+//                canvasImage.setCanvasAdaptor(adaptor);
+//                canvasImage.setLocation(1,1,100,100);
+//
+//                canvasImage.draw();
+//            }
+//        });
     }
 
     public static void main(String args[]) throws NoSuchAlgorithmException {
