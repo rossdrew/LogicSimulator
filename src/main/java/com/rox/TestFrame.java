@@ -30,16 +30,13 @@ public class TestFrame extends JFrame {
                 CanvasImage canvasImage = new NotCanvasImage();
                 canvasImage.setCanvasAdaptor(adaptor);
                 canvasImage.setLocation(1,1,100,100);
+
                 canvasImage.draw();
             }
         });
     }
 
     public static void main(String args[]) throws NoSuchAlgorithmException {
-
-
-// convert hash bytes to string (usually in hexadecimal form)
-
         TestFrame frame = new TestFrame();
     }
 }
