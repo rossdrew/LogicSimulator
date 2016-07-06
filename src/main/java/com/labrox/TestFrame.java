@@ -1,4 +1,4 @@
-package com.roxlab;
+package com.labrox;
 
 import com.rox.ui.CanvasAdaptor;
 import com.rox.ui.CanvasImage;

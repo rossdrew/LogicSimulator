@@ -44,6 +44,9 @@
                     <targetTests>
                         <param>com.rox*</param>
                     </targetTests>
+                    <excludedClasses>
+                        <param>com.lab*</param>
+                    </excludedClasses>
                 </configuration>
 
                 <executions>
