@@ -25,3 +25,4 @@ mvn test
 # Future
 
  - Add some UI for creating gate configurations.
+ - Fix the code coverage
