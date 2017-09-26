@@ -1,4 +1,4 @@
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](MIT/Apache 2.0) 
+![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)
 [![Build Status](https://travis-ci.org/rossdrew/LogicSimulator.svg?branch=master)](https://travis-ci.org/rossdrew/LogicSimulator) 
 [![codecov](https://codecov.io/gh/rossdrew/LogicSimulator/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrew/LogicSimulator)
 
