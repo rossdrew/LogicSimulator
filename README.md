@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/rossdrew/LogicSimulator.svg?branch=master)](https://travis-ci.org/rossdrew/LogicSimulator) 
 [![codecov](https://codecov.io/gh/rossdrew/LogicSimulator/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrew/LogicSimulator)
 
-#LogicSimulator
+# Logic Simulator
 
 Simple logic circuit simulator in order to play around with TDD, Mockito, [Pitest](http://pitest.org/), [Travis CI](https://travis-ci.org/) and [codecov](https://codecov.io/) (using JaCoCo)
 
